@@ -1,0 +1,66 @@
+table gold_dim_hotel
+	lineageTag: 17afbed2-b7c5-4617-9032-020f925f64a8
+	sourceLineageTag: [dbo].[gold_dim_hotel]
+
+	column hotel_id
+		dataType: string
+		lineageTag: 2be6be4e-bcab-4abc-ba7e-de02c9332334
+		sourceLineageTag: hotel_id
+		summarizeBy: none
+		sourceColumn: hotel_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column hotel_name
+		dataType: string
+		lineageTag: c010891f-7dd9-4aa0-9e8d-0b232fab33b2
+		sourceLineageTag: hotel_name
+		summarizeBy: none
+		sourceColumn: hotel_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column hotel_type
+		dataType: string
+		lineageTag: 873940ca-7b36-41e1-8ba8-dfde4213aace
+		sourceLineageTag: hotel_type
+		summarizeBy: none
+		sourceColumn: hotel_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column star_rating
+		dataType: int64
+		formatString: 0
+		lineageTag: 2ecbd257-bafe-4ad2-bfda-23786ba70cd4
+		sourceLineageTag: star_rating
+		summarizeBy: none
+		sourceColumn: star_rating
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		lineageTag: 4dc7349c-eeb0-496e-8779-973c5d8f6007
+		sourceLineageTag: city
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column country
+		dataType: string
+		lineageTag: aa2e88bc-c380-4128-8433-0037428b9094
+		sourceLineageTag: country
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_dim_hotel = entity
+		mode: directLake
+		source
+			entityName: gold_dim_hotel
+			schemaName: dbo
+			expressionSource: 'DirectLake - HB_Lakehouse'
+

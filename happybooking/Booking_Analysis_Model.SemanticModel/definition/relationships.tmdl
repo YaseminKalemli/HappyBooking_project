@@ -1,0 +1,8 @@
+relationship 9a2810a5-2266-a431-deb8-edb2703da7e3
+	fromColumn: gold_fact_bookings.hotel_id
+	toColumn: gold_dim_hotel.hotel_id
+
+relationship 593facad-c232-06b0-47b3-8572a970d624
+	fromColumn: gold_fact_bookings.city
+	toColumn: gold_dim_weather.time
+

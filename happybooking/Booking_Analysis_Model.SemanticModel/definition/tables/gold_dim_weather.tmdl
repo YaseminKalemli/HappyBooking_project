@@ -1,0 +1,51 @@
+table gold_dim_weather
+	lineageTag: c17a6c42-798c-48ec-83f3-4fbb84fab8d9
+	sourceLineageTag: [dbo].[gold_dim_weather]
+
+	column city
+		dataType: string
+		lineageTag: 286bb6c3-b2e1-431a-b949-28d0ccaa2564
+		sourceLineageTag: city
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column temp
+		dataType: double
+		lineageTag: 32f0438c-6ef6-4749-893b-92aeef92f793
+		sourceLineageTag: temp
+		summarizeBy: none
+		sourceColumn: temp
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column wind
+		dataType: double
+		lineageTag: f1bc2d3f-27a9-427a-83bf-a094a7e669fa
+		sourceLineageTag: wind
+		summarizeBy: none
+		sourceColumn: wind
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column time
+		dataType: string
+		lineageTag: a5a30f95-34e3-45d7-9363-fe122541b016
+		sourceLineageTag: time
+		summarizeBy: none
+		sourceColumn: time
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_dim_weather = entity
+		mode: directLake
+		source
+			entityName: gold_dim_weather
+			schemaName: dbo
+			expressionSource: 'DirectLake - HB_Lakehouse'
+

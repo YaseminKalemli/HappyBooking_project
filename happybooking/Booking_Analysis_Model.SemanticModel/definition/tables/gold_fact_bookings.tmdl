@@ -1,0 +1,71 @@
+table gold_fact_bookings
+	lineageTag: b75b8506-6f8b-4c0b-90eb-d0940fdc84ff
+	sourceLineageTag: [dbo].[gold_fact_bookings]
+
+	column hotel_id
+		dataType: string
+		lineageTag: ba8c664b-2762-49ac-921d-ad3d7a48a7bc
+		sourceLineageTag: hotel_id
+		summarizeBy: none
+		sourceColumn: hotel_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		lineageTag: bf8832f5-64a2-4b3f-80c4-f4f031712e77
+		sourceLineageTag: city
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_price
+		dataType: double
+		lineageTag: f61c1c37-5cb6-4281-8ed2-7d5c98927fda
+		sourceLineageTag: total_price
+		summarizeBy: sum
+		sourceColumn: total_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column temp
+		dataType: double
+		lineageTag: 038edfdb-94e0-4446-83b8-0dd968f49d47
+		sourceLineageTag: temp
+		summarizeBy: sum
+		sourceColumn: temp
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column wind
+		dataType: double
+		lineageTag: f5bcb554-fbdd-4c4c-9b74-58b258ceaa12
+		sourceLineageTag: wind
+		summarizeBy: sum
+		sourceColumn: wind
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column time
+		dataType: string
+		lineageTag: a26620ba-67b5-42a9-b620-cd36018ad7d9
+		sourceLineageTag: time
+		summarizeBy: none
+		sourceColumn: time
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_fact_bookings = entity
+		mode: directLake
+		source
+			entityName: gold_fact_bookings
+			schemaName: dbo
+			expressionSource: 'DirectLake - HB_Lakehouse'
+
